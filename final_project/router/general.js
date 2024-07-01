@@ -61,7 +61,7 @@ public_users.get('/isbn/:isbn', function (req, res) {
     }).then((result) => {
         return res.send(result);
     }).catch(e => {
-        req.status(404).send(e);
+        return res.status(404).send(e);
     });
 });
 
@@ -82,7 +82,7 @@ public_users.get('/author/:author', function (req, res) {
     }).then((result) => {
         return res.send(result);
     }).catch(e => {
-        req.status(404).send(e);
+        return res.status(404).send(e);
     });
 });
 
@@ -103,7 +103,7 @@ public_users.get('/title/:title', function (req, res) {
     }).then((result) => {
         return res.send(result);
     }).catch(e => {
-        req.status(404).send(e);
+        return res.status(404).send(e);
     });
 });
 
@@ -116,7 +116,7 @@ public_users.get('/review/:isbn', function (req, res) {
     if (book) {
         return res.send(book.reviews);
     } else {
-        return req.status(404).send("No book found.");
+        return res.status(404).send("No book found.");
     }
 });
 
